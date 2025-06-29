@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Titanic Survival Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label>Passenger Class:</label>
+                <input type="number" name="pclass" min="1" max="3" required>
+            </div>
+            <div class="form-group">
+                <label>Sex:</label>
+                <select name="sex" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="number" name="age" step="any" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Fare:</label>
+                <input type="number" name="fare" step="any" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Embarked:</label>
+                <select name="embarked" required>
+                    <option value="S">Southampton</option>
+                    <option value="C">Cherbourg</option>
+                    <option value="Q">Queenstown</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Siblings/Spouses Aboard:</label>
+                <input type="number" name="sibsp" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>Parents/Children Aboard:</label>
+                <input type="number" name="parch" min="0" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

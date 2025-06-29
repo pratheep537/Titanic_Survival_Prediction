@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container result">
+        <h1>Prediction Result</h1>
+        {% if result.survived %}
+            <h2 style="color: #2ecc71;">🎉 Passenger is likely to Survive</h2>
+        {% else %}
+            <h2 style="color: #e74c3c;">⚠️ Passenger is unlikely to Survive</h2>
+        {% endif %}
+        <p><strong>Survival Probability:</strong> {{ result.probability }}%</p>
+        <hr>
+        <h3>Passenger Info:</h3>
+        <ul>
+            <li><strong>Class:</strong> {{ result.pclass }}</li>
+            <li><strong>Sex:</strong> {{ result.sex }}</li>
+            <li><strong>Age:</strong> {{ result.age }}</li>
+            <li><strong>Fare:</strong> {{ result.fare }}</li>
+            <li><strong>Embarked:</strong> {{ result.embarked }}</li>
+            <li><strong>Siblings/Spouses:</strong> {{ result.sibsp }}</li>
+            <li><strong>Parents/Children:</strong> {{ result.parch }}</li>
+        </ul>
+        <a href="/" class="back-button">🔙 Try Again</a>
+    </div>
+</body>
+</html>
